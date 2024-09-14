@@ -1,0 +1,156 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    height: 100%; /* Ensure body height is 100% */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative; /* Position relative to allow pseudo-elements */
+    background: url('images/Screenshot\ 2024-09-14\ at\ 19.02.19.png') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure the background image covers the whole viewport */
+    min-height: 100vh; /* Ensure body covers the viewport height */
+    padding-bottom: 100px; /* Add padding to avoid content being hidden behind footer */
+}
+
+/* Blurred background styling */
+body::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position absolutely within the body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('your-background-image.jpg') no-repeat center center; /* Same image for blurring */
+    background-size: cover; /* Ensure the image covers the whole viewport */
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -2; /* Place behind everything else */
+}
+
+/* Overlay styling */
+body::after {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position absolutely within the body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    pointer-events: none; /* Ensure it doesn't block interactions with the page content */
+    z-index: -1; /* Place between the blurred background and main content */
+}
+
+header {
+    width: 100%;
+    height: 60vh; /* Adjusted height for scrollability */
+    overflow: hidden;
+    position: relative; /* Position relative for the pseudo-element */
+}
+
+header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the GIF covers the area without distortion */
+    display: block; /* Removes any unwanted space below the image */
+}
+
+header::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute; /* Position absolutely within the header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    pointer-events: none; /* Ensure it doesn't block interactions with the GIF */
+}
+
+.centered-image {
+    position: absolute; /* Position absolutely within the header */
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the image */
+}
+
+.centered-image img {
+    display: block; /* Remove any unwanted space below the image */
+    max-width: 100%; /* Ensure the image fits within the header */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.image-row {
+    display: flex; /* Arrange images in a row */
+    justify-content: center; /* Center images horizontally */
+    gap: 20px; /* Space between images */
+    padding: 20px; /* Padding around the image row */
+}
+
+.image-row img {
+    width: 450px; /* Set a larger width for images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any unwanted space below the image */
+}
+
+.title {
+    font-family: 'Fredoka One', sans-serif; /* Apply the Fredoka One font */
+    font-size: 2rem; /* Adjust the font size as needed */
+    text-align: center; /* Center the title text */
+    margin: 20px 0; /* Space above and below the title */
+    color:goldenrod
+}
+
+.image-grid {
+    display: grid; /* Use grid layout for images */
+    grid-template-columns: repeat(4, 1fr); /* Create a 4-column grid */
+    grid-gap: 20px; /* Space between grid items */
+    padding: 20px; /* Padding around the grid */
+}
+
+.image-grid img {
+    width: 100%; /* Ensure images fit within grid cells */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any unwanted space below the image */
+}
+
+.bouncing-images {
+    position: absolute; /* Position absolutely within the body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't block interactions with the page content */
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.bouncing {
+    position: absolute; /* Position absolutely within the bouncing-images container */
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    /* The animation will be defined in JavaScript */
+}
+
+/* Social Media Icons */
+.social-media {
+    position: absolute; /* Position absolutely within the header */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    z-index: 2; /* Ensure it appears above other content */
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px; /* Space between icons */
+    color: white; /* Icon color */
+    font-size: 54px; /* Icon size */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.social-icon:hover {
+    color: #1da1f2; /* Twitter color on hover */
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+.social-icon.telegram:hover {
+    color: #0088cc; /* Telegram color on hover */
+}
